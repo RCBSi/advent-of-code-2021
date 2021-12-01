@@ -1,10 +1,9 @@
-def up(x,y): # boolean "is this an increase"
+def up(x,y):
     if y > x: 
         return 1
-    else:
-        return 0
+    return 0
 
-def up_seq(t,k): # k = offset.
+def up_seq(t,k):
     return [up(t[i],t[i+k]) for i in range(len(t)-k)]
 
 with open('day01v1.txt', 'r') as file:
