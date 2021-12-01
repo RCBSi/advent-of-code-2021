@@ -2,7 +2,7 @@
 
 import math 
 
-def up(x,y): # boollean "is this an increase"
+def up(x,y): # boolean "is this an increase"
     if y > x: 
         return 1
     else:
