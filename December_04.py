@@ -11,7 +11,6 @@ with open('day04v2.txt', 'r') as file:
     t = [x.strip() for x in file.readlines()]
 
 boards = [[s.split() for s in t[x:x+5]] for x in range(2,len(t),6)]
-bs = [sum([int(x) for r in b for x in r]) for b in boards]
 
 tb = t[0].split(",") # time=index, ball-value.
 bat = {tb[k]:k for k in range(len(tb))} # ball : time.
