@@ -4,51 +4,18 @@ def tr(board): #transpose
 def sco(b, tim, t): #score the board at the time t
     return sum([int(x)*(tim[x] > t) for r in b for x in r])
 
+def wt(a,bt): # win-time for a row, given ball-time.
+    return max(bt[x] for x in a)
+
 with open('day04v2.txt', 'r') as file:
     t = [x.strip() for x in file.readlines()]
 
-i=0
-rando = t[i].split(",")
-i+=2
-boards = []
-while i < len(t):
-    boards.append([s.split() for s in t[i:i+5]])
-    i += 6
+boards = [[s.split() for s in t[x:x+5]] for x in range(2,len(t),6)]
+bs = [sum([int(x) for r in b for x in r]) for b in boards]
 
-tim = {}
-for i in range(len(rando)):
-    tim[rando[i]] = i
+tb = t[0].split(",") # time=index, ball-value.
+bat = {tb[k]:k for k in range(len(tb))} # ball : time.
+tib = {min([wt(a,bat) for a in boards[i] + tr(boards[i])]):i for i in range(len(boards))} #time:board.
 
-bs = []#board sum
-for b in boards:
-    bs.append(sum([int(x) for r in b for x in r]))
-    
-
-(gt, sc) = (len(rando),0) #game time, score delta
-for i in range(len(boards)):
-    for wl in boards[i] + tr(boards[i]):
-        if max([tim[x] for x in wl]) < gt:
-            gt = max([tim[x] for x in wl])
-            sc = sco(boards[i],tim,gt)
-#            sc = bs[i] - sum([int(x) for x in wl])
-            print("t=",gt,"wl=", wl, "score -=",sc)
-
-print("Part1:", int(rando[gt])*sc)
-
-(gt,sc, lb) = (0,0,0) #game time, score delta, loserboard
-for i in range(len(boards)):
-    bt = len(rando) # board time
-    for wl in boards[i] + tr(boards[i]):
-        if max([tim[x] for x in wl]) < bt:
-            bt = max([tim[x] for x in wl])
-            sc = sco(boards[i],tim,gt)
-#            sc = bs[i] - sum([int(x) for x in wl])
-#            print("t=",gt,"wl=", wl, "score -=",sc)
-#    print("board #",i,"won in time",bt)
-    if bt > gt:
-        lb = i
-        gt = bt
-        sc = sco(boards[i],tim,gt)
-        
-print("Part2:", int(rando[gt])*sco(boards[lb],tim,gt))
-
+print("Part1:", int(tb[min(tib)]) * sco(boards[tib[min(tib)]],bat,min(tib)))
+print("Part2:", int(tb[max(tib)]) * sco(boards[tib[max(tib)]],bat,max(tib)))
