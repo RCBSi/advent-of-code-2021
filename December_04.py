@@ -1,8 +1,8 @@
 def tr(board): #transpose
     return [[board[i][j] for i in range(5)] for j in range(5)] 
 
-def sco(b, tim, t): #score the board at the time t
-    return sum([int(x)*(tim[x] > t) for r in b for x in r])
+def sco(bingoboard, balltime, t): #score the board at the time t
+    return sum([int(x)*(balltime[x] > t) for row in bingoboard for x in row])
 
 def wt(a,bt): # win-time for a row, given ball-time.
     return max(bt[x] for x in a)
