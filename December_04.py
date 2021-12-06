@@ -12,9 +12,9 @@ with open('day04v2.txt', 'r') as file:
 
 boards = [[s.split() for s in t[x:x+5]] for x in range(2,len(t),6)]
 
-tb = t[0].split(",") # time=index, ball-value.
-bat = {tb[k]:k for k in range(len(tb))} # ball : time.
-tib = {min([wt(a,bat) for a in boards[i] + tr(boards[i])]):i for i in range(len(boards))} #time:board.
+tiba = t[0].split(",") # time=index, ball-value.
+bati = {tiba[k]:k for k in range(len(tiba))} # ball : time.
+tibo = {min([wt(a,bati) for a in boards[i] + tr(boards[i])]):i for i in range(len(boards))} #time:board.
 
-print("Part1:", int(tb[min(tib)]) * sco(boards[tib[min(tib)]],bat,min(tib)))
-print("Part2:", int(tb[max(tib)]) * sco(boards[tib[max(tib)]],bat,max(tib)))
+print("Part1:", int(tiba[min(tibo)]) * sco(boards[tibo[min(tibo)]],bati,min(tibo)))
+print("Part2:", int(tiba[max(tibo)]) * sco(boards[tibo[max(tibo)]],bati,max(tibo)))
