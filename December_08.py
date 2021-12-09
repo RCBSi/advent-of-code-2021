@@ -48,8 +48,6 @@ print(sum([score(u,f) for u in t]))
 # 5 has no children and 6,8,9 as parents
 # 7 has child 1 and parent 3
 # 4 has child 1 and parent 9 ...
-# Huom:
-#  parent-child relationships with 
-#  len(parent) = len(child) + 2 are helpful!
-# Image:
-#  1 < 7 < 3 < 9 < 8
+#Image:
+#  1  <  7  <  3  <  9  <  8 
+#  1<4<9;  2<5<6;  5<9;  0<8 
