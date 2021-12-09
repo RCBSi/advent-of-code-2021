@@ -35,17 +35,3 @@ f ={
     (6, 0, 7): 8}
 
 print(sum([score(u,f) for u in t]))
-
-#d = pd.DataFrame(num_kids.items(), columns=["id","kids"])
-#d["pare"] = d.id.apply(lambda x: num_pare.get(x,-1))
-#d["numb"] = d.id.apply(lambda x: winu.get(x,-1))
-#d["len"] = d.id.apply(lambda x:len(x))
-#d.groupby(["kids","pare","len"]).numb.min().to_dict()
-#d.numb by hand: 
-# 2 has no children and only 8 as a parent; 
-# 0 has no children and only 8 as a parent;
-# 1 has no children and only 4,7 as parent;
-# 5 has no children and 6,8,9 as parents
-# Huom:
-#  parent-child relationships with 
-#  len(parent) = len(child) + 2 are rare. 
