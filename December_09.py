@@ -46,6 +46,6 @@ print(time.time()-start, "time for Part2:", x*y*z)
 # If the condition for accession to a basin: return new_value < 9 and new_value > old_value
 # in line 18 were abbreviated to say simply: return new_value < 9
 # I would imagine the search to more rapidly and efficiently find the basis. But in fact the runtime would rise from:
-# 0.192813873 time for Part2: 856716 
+# 0.192813873 time for Part2: 8xxxx6
 # to 
-# 0.778840065 time for Part2: 856716
+# 0.778840065 time for Part2: 8xxxx6
