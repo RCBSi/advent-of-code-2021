@@ -50,4 +50,4 @@ print(sum([score(u,f) for u in t]))
 # 4 has child 1 and parent 9 ...
 #Image:
 #  1  <  7  <  3  <  9  <  8 
-#  1<4<9;  2<5<6;  5<9;  0<8 
+#  1<4<9; 5<6; 5<9; 2<8; 0<8 
