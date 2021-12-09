@@ -41,13 +41,7 @@ print(sum([score(u,f) for u in t]))
 #d["pare"] = d.id.apply(lambda x: np.get(x,-1))
 #d["len"] = d.id.apply(lambda x:len(x))
 #d.groupby(["kids","pare","len"]).numb.min().to_dict()
-#d.numb by hand: 
-# 2 has no children and only 8 as a parent; 
-# 0 has no children and only 8 as a parent;
-# 1 has no children and only 4,7 as parent;
-# 5 has no children and 6,8,9 as parents
-# 7 has child 1 and parent 3
-# 4 has child 1 and parent 9 ...
-#Image:
+#d.numb from the directed graph < ~ containment
+#  -Containment Graph Image- 
 #  1  <  7  <  3  <  9  <  8 
 #  1<4<9; 5<6; 5<9; 2<8; 0<8 
