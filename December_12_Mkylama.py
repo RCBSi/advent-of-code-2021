@@ -58,7 +58,7 @@ while pa: # depth-first search is what they used.
 print(time.time() - start, len(ep), "while pa, ep.extend(new_ended)")
 start = time.time()
 
-def cl(lc,se,se2): # count legitimate paths, indexing them by recursion, without listing paths.
+def cl(lc,se,se2): #  count legitimate paths, indexing them by recursion, without listing paths,
     if lc == 'end':
         return 1
     clfrn = 0 #count legitimate paths from this recursion node.
@@ -70,7 +70,7 @@ def cl(lc,se,se2): # count legitimate paths, indexing them by recursion, without
         elif not se2:
             clfrn += cl(c2,se,[c2])
     return clfrn
-print(time.time() - start, cl('start',[],[]), "count legitimate paths with recursion indexing them")
+print(time.time() - start, cl('start',[],[]), "Count Recursively Arranged Walk Lattice, Without Listing And Repeating Caves")
 #
 # 4.104459762573242 9xxx2 while pa, ep.extend(new_ended)
 # 0.00019884109497070312 9xxx2 count legitimate paths with recursion indexing them, building neither paths nor the list of paths.
