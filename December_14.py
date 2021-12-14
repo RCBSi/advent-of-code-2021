@@ -26,7 +26,7 @@ def ud(pc): #update pair-count.
         npc[c+b]+= pc[a+b]
     return npc
 
-def ip(st): #initialize paircound
+def ip(st): #initialize paircount
     npc = {el+el2:0 for el in me for el2 in me}
     for i in range(len(st)-1):
         npc[st[i:i+2]] += 1
