@@ -35,7 +35,7 @@ def ip(st): #initialize paircound
 def sc(pc,el): # single-character count.
     return sum([pc[el + x] for x in me])+{True:1, False:0}[st[-1]==el]
 
-me = {el:0 for el in ['B', 'C', 'F', 'H', 'K', 'N', 'O', 'P', 'S', 'V']}
+me = {el:0 for el in ['B', 'C', 'F', 'H', 'K', 'N', 'O', 'P', 'S', 'V']} # mendeleev table of elements.
 pc = ip(st)
 for _ in range(40):
     pc = ud(pc)
