@@ -67,7 +67,7 @@ M = M2
 ltr = ff_init(M)
 result = ltr[m-1][n-1]
 last_result = result + 1
-while result < last_result:
+while result < last_result: # This should loop at most (9-1)/2 times, since every SE-to-NW step costs at least 1 move up and 1 move down, and avoids a barrier with a cost at most 9.
     last_result = result
     print(time.time() - st, result)
     ltr = ff(ff(ltr,M,'SE'),M,'NW')
