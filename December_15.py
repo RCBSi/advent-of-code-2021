@@ -53,7 +53,7 @@ with open('day15v1.txt', 'r') as file:
 (m,n) = (len(te), len(te[0]))
 (m0,n0) = (len(te), len(te[0]))
 M = [[int(x) for x in u] for u in te]
-print("P1",ff_init(M)[m-1][n-1]) # In my problem text, at least one minimal path was montonically NW-to-SE, so no ff was needed. If this is too high; run line 73 a few times.
+print("P1",ff_init(M)[m-1][n-1]) # In my problem text, at least one minimal path was monotonically NW-to-SE, so no ff was needed. If this is too high; run line 73 a few times.
 mult = 5
 M2 = [[0 for i in range(n0*mult)] for j in range(m0*mult)]
 for i in range(mult):
