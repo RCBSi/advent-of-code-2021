@@ -57,14 +57,14 @@ def pe(sn, ad, v): #snailfish number address "plus equals" value.
         sn[ad[0]] = pe(sn[ad[0]], ad[1:], v)
         return sn
     
-def rep(sn, ad, v): #snailfish replace.
+def rep(sn, ad, v): #snailfish replace address ad with v.
     if len(ad) == 0:
         return v
     else: 
         sn[ad[0]] = rep(sn[ad[0]], ad[1:], v)
         return sn
 
-def rea(sn, ad): #snailfish replace.
+def rea(sn, ad): #snailfish read sn at address ad.
     sn = stn(sn)
     if isinstance(ad, list):
         if len(ad) == 0:
