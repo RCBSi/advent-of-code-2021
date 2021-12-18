@@ -100,13 +100,6 @@ def sp(sn):
                     return sn  
     return sn
 
-def hn(sn):
-    sn = nts(sn)
-    for i in range(len(sn)-4):
-        if sn[i:i+4]=='None':
-            return True
-    return False
-
 def needs_treatment(sn):
     if nf(str(sn)):
         return True
