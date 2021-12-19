@@ -1,6 +1,7 @@
 # advent-of-code-2021
 
 Day 19, Plan: 
+
     1. Identify stars by their local types, i.e., the distance
         and cosine to the nearest two other stars.
     Result: Success! Stars appear in clusters of 3.
