@@ -64,7 +64,6 @@ def fi(obl): #fingerprints based on the two nearest stars.
 def gi(soo): # guess intersections.
     M = [[0 for _ in range(len(soo))] for _ in range(len(soo))]
     On =[[ [[],[]] for _ in range(len(soo))] for _ in range(len(soo))]
-    All = [[ {} for _ in range(len(soo))] for _ in range(len(soo))]
     pairs = []
     for i in range(len(soo)):
         di = fi(soo[i])
@@ -79,47 +78,23 @@ def gi(soo): # guess intersections.
             if ct == 12: # Also works with ">= 3 and ct <= 12":
                 On[i][j] = out
                 On[j][i] = [out[1],out[0]]
-                All[i][j] = fi(soo[i]).keys() & fi(soo[j]).keys()
-                All[j][i] = fi(soo[i]).keys() & fi(soo[j]).keys()
                 pairs.append([i,j])
-    return M, On, pairs, All
+    return M, On, pairs
 
 def tr(ob0,ob1,sob):# translate into reference frame ob0 the observations sob made in frame ob1.
     E0 = [[1,0,0],[-1,1,0],[-1,0,1]]
     [M0,M1] = On[ob0][ob1]
     ksx0,ksy0,ksz0 = M0[0]
     ksx1,ksy1,ksz1 = M1[0]
-    output = []
-    found_u = 0
+    output = [] 
     for u in uni:
         if mm(E0,M0)[1:] == mm(mm(E0,M1),u)[1:]:
             ru = u # the right u
-            found_u = 1
-#            print("ob0:", mm(E0,M0), "ob1", mm(mm(E0,M1),u))
-    # if no hits, randomly switch the row order and retry.
-    if found_u == 0:
+    if ru is None: # if we didn't find the right unitary matrix, flip the rows.
         E1 = mm([[1,0,0],[0,0,1],[0,1,0]], E0)
         for u in uni:
             if mm(E1,M0)[1:] == mm(mm(E1,M1),u)[1:]:
                 ru = u # the right u
-                found_u = 1  
-    if found_u == 0:
-        x = list(Alk[ob0][ob1])
-        x.sort()
-        try_i = 0
-        [M0,M1] = fi(soo[ob0])[x[try_i]], fi(soo[ob1])[x[try_i]]
-        ksx0,ksy0,ksz0 = M0[0]
-        ksx1,ksy1,ksz1 = M1[0]
-        output = []
-        found_u = 0
-        for u in uni:
-            if mm(E0,M0)[1:] == mm(mm(E0,M1),u)[1:]:
-                ru = u # the right u
-                found_u = 1
-    if found_u == 0:
-        print("STILL NO DICE", ob0, ob1)
-        print(mm(E0,M0)[1:])
-        print(mm(E0,M1)[1:])
     for [x,y,z] in sob:
         [[x0,y0,z0]] = mm([[x-ksx1, y-ksy1, z-ksz1]],ru)
         output.append([ksx0+x0,ksy0+y0,ksz0+z0])
@@ -150,11 +125,11 @@ def rp(Pg): #from the graph Pg, make a reduction plan.
         len_queue.sort()
     return plan
 
-with open('day19v1.txt', 'r') as file:
+with open('day19v0.txt', 'r') as file:
     te = [x.strip() for x in file.readlines()]
 
 soo = rev(te)
-M, On, Pg, Alk = gi(soo)
+M, On, Pg = gi(soo)
 [print(".".join([str(x) for x in row])) for row in M]
 
 so1 = [[y for y in x] for x in soo]
@@ -182,8 +157,3 @@ for [x,y,z] in scanners:
         dmax = max(abs(x-a)+abs(b-y)+abs(c-z), dmax)
 
 print("part2", dmax)
-
-
-
-
-
