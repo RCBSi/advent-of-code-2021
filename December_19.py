@@ -56,8 +56,7 @@ def fi(obl): #fingerprints based on the two nearest stars.
         nn2 = [[a,b,c] for [a,b,c] in obl if sum([(a-x)**2,(b-y)**2,(c-z)**2]) == dpsx[1]]+[
             [a,b,c] for [a,b,c] in obl if sum([(a-x)**2,(b-y)**2,(c-z)**2]) == dpsx[2]
         ]
-#        nn2.sort() # not sorted by size, but rather by x, then y.
-        dpnn2 = abs((nn2[0][0]-x)*(nn2[1][0]-x) + (nn2[0][1]-y)*(nn2[1][1]-y) + (nn2[0][2]-z)*(nn2[1][2]-z))
+        dpnn2 = abs((nn2[0][0]-x)*(nn2[1][0]-x) + (nn2[0][1]-y)*(nn2[1][1]-y) + (nn2[0][2]-z)*(nn2[1][2]-z)) # dot product to the nearest two neighbours. Why not use the function "dot" ? 
         dps[sum([10000000**i * dpsx[i] for i in range(1,3)])*10000000 + dpnn2] = [[x,y,z]]+nn2
     return dps
 
