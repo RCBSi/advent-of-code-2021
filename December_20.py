@@ -4,7 +4,7 @@ def rem(M,ov,i,j): #read the matrix or take the outside value
     else:
         return ov
 
-def gal(b, M,i,j): #game of life; bitstring M, matrix M, location i,j.
+def gal(b, M,i,j): #game of life; bitstring b, matrix M, location i,j.
     bl = [rem(M,ov,k,l) for k in range(i-1,i+2) for l in range(j-1,j+2)]
     lu = int(''.join('01'[i] for i in bl), 2)
     return b[lu]
