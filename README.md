@@ -7,8 +7,8 @@ Day 19:
 the key-star has two neighbours nearby and both observers can see them. Each observer makes a matrix:
 
     key-star
-    bestis
-    nextbestis, eli nextis.
+    bestis, the nearest neighbour
+    nextis, the next-nearest neighbour
 
 Each observer subtracts the key-star to move these three stars into the keystar-centered reference frame:
 
