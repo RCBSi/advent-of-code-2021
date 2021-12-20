@@ -35,5 +35,5 @@ def fh(ivx,ivy,tx,ty): #find highest point
 tx = range(xmin,xmax+1) # target area x, read it from the input.
 ty = range(ymin,ymax+1) # target area y.
 ry = [y for y in range(ymin, -1*ymin+1)]
-rx = [x for x in range([lv(k) > xmin for k in range(20)].index(True),xmax+1) if xmin <= lv(x) and x <= xmax]
+rx = [x for x in range([lv(k) >= xmin for k in range(20)].index(True),xmax+1) if xmin <= lv(x) and x <= xmax]
 print("pt2",sum([1 for x in rx for y in ry if fh(x,y,tx,ty) >= ymin]))
