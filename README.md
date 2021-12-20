@@ -14,12 +14,12 @@ Day 19, Plan:
     3. Walk through the graph of neighbours, translating to a common
         reference frame.
 
-1a: If we declare regions neighbours when at least 1 fingerprint matches, 
+    1a. If we declare regions neighbours when at least 1 fingerprint matches, 
     the graph of neighbours has 28 nodes and exactly 100 edges,
     the degree of each node is between 2 and 11. 
     The graph is connected.
         
-1b: After part 1, (len(fi(so1[plan[-1][1]])) == len(so1[plan[-1][1]])) == True ,
+    1b. After part 1, (len(fi(so1[plan[-1][1]])) == len(so1[plan[-1][1]])) == True ,
     i.e., no two stars had the same hash.
 
 
