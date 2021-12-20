@@ -26,8 +26,6 @@ Day 19, Plan:
 
 date, runtime, version
 
-18,     5s,    "string" (nb, the last version is faster in part2 by setting param=6 and saving many steps!)
-
 18,     1.5s,  "location-value-depth"
 
 19,     1s,    "min-distance, 2nd-min-distance, cosine" hash for each star.
