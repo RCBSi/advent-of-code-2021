@@ -1,7 +1,7 @@
 import ast 
 import time
 
-param = 6
+param = 5
 
 def stn(st):# string to nested list of lists.
     if isinstance(st,str):
@@ -141,6 +141,8 @@ with open('day18v1.txt', 'r') as file:
 
 print("p1",mag(stn(ads(te))))
 
+param = 6
+
 maxa = 0
 te.reverse()
 mid = time.time()
@@ -155,3 +157,4 @@ for i in range(len(te)):
 
 print("Part2:", maxa, "total time", time.time() - start)
 
+# 30 seconds to perform 100^2 additions.
