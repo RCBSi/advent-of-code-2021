@@ -1,6 +1,36 @@
 # advent-of-code-2021
 
-Day 19, Plan: 
+Day 19:
+
+*    left_observer ---------------- key-star ------------ right_observer *
+
+the key-star has two neighbours nearby and both observers can see them. Each observer makes a matrix:
+
+    key-star
+    bestis
+    nextbestis, eli nextis.
+
+Each observer subtracts the key-star to move these three stars into the keystar-centered reference frame:
+
+    0,0,0,
+    keystar_to_bestis
+    keystar_to_nextis
+
+Now, these are in fact the same stars, so there is a rotation U_right; when you have it on the right, u right:
+
+    what_Leftis_sees == what_rightis_sees * U_right
+
+What's true for 2 stars is true for all stars:
+
+    0,0,0
+    bestis minus keystar
+    nextis minus keystar
+    star_0 minus keystar
+    star_1 minus keystar
+    star_2 minus keystar
+
+is a matrix that differs, in observational reference frames left_observer and right_observer by U_right. 
+
 
     1. Identify stars by their local types, i.e., the distance
         and cosine to the nearest two other stars.
@@ -20,6 +50,7 @@ Day 19, Plan:
         
     1b. After part 1, (len(fi(so1[plan[-1][1]])) == len(so1[plan[-1][1]])) == True ,
     i.e., no two stars had the same hash.
+
 
 
 
