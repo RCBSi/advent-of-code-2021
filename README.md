@@ -28,4 +28,4 @@ date, runtime, version
 
 18,     1.5s,  "location-value-depth"
 
-19,     1s,    "min-distance, 2nd-min-distance, cosine" hash for each star.
+19,     0.7s,    "min-distance, 2nd-min-distance, cosine" hash for each star.
