@@ -15,3 +15,7 @@ Day 19, Plan:
         
     3. Make a "reduction plan" to transitively translate all 
         observations into a common reference frame. 
+
+date, runtime, version
+18,     5s,    "string"
+18,     1.5s,  "location-value-depth"
