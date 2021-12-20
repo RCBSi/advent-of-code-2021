@@ -66,7 +66,7 @@ def gi(soo): # guess intersections.
     pairs = []
     for i in range(len(soo)):
         di = fi(soo[i])
-        for j in range(i,len(soo)):#  fi(soo[i]).keys() & fi(soo[j]).keys()
+        for j in range(i+1,len(soo)):#  fi(soo[i]).keys() & fi(soo[j]).keys()
             ct = 0
             d2 = fi(soo[j])
             for k in d2:
@@ -74,7 +74,7 @@ def gi(soo): # guess intersections.
                     ct += 1
                     out = [di[k],d2[k]]
             M[i][j] = ct
-            if ct == 12: # Also works with ">= 3 and ct <= 12":
+            if ct >= 1:
                 On[i][j] = out
                 On[j][i] = [out[1],out[0]]
                 pairs.append([i,j])
