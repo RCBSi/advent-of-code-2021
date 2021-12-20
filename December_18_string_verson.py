@@ -157,4 +157,5 @@ for i in range(len(te)):
 
 print("Part2:", maxa, "total time", time.time() - start)
 
-# 30 seconds to perform 100^2 additions.
+# 30 seconds to perform 100^2 additions if we set param = 5 in part2; if we set param=6 in part2, then:
+# 5s to do 100^2 additions and settle the resulting arrays.
