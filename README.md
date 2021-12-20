@@ -15,9 +15,8 @@ Day 19, Plan:
         reference frame.
 
     1a. If we declare regions neighbours when at least 1 fingerprint matches, 
-    the graph of neighbours has 28 nodes and exactly 100 edges,
-    the degree of each node is between 2 and 11. 
-    The graph is connected.
+    the graph of neighbours has 28 nodes and 94 edges, with degrees between 2 and 11. 
+    It's enough that the graph is connected.
         
     1b. After part 1, (len(fi(so1[plan[-1][1]])) == len(so1[plan[-1][1]])) == True ,
     i.e., no two stars had the same hash.
