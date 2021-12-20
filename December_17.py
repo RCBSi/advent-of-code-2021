@@ -1,4 +1,11 @@
-# decouple x and y. Calculate highest y that passes through the range.
+with open('day17v0.txt', 'r') as file:
+    te = [x.strip() for x in file.readlines()]
+    xmin, xmax = [int(x) for x in te[0][te[0].index('x')+2:te[0].index(','):].split('..')]
+
+    ymin, ymax = [int(x) for x in te[0][te[0].index('y')+2:].split('..')]
+
+if [x for x in range(0,xmax) if xmin < lv(x) and lv(x) < xmax]: # If we can limit to the x-target, 
+    print("pt",lv(ymin)) # Launch at v = -ymin+1; rise lv(v); fall lv(v); return to 0; velocity is ymin. next step in target.
 
 def st(x,y,xv,yv): # step
     x+= xv
