@@ -4,10 +4,8 @@ Day 19, Plan:
 
     1. Identify stars by their local types, i.e., the distance
         and cosine to the nearest two other stars.
-    Result: Success! 1a. Whenever two regions overlap, at least 
-        one star and its two nearest neighbours are in the overlap, 
-        and 1b. distance, distance, cosine is enough information for
-        a hash: there are no false positives anywhere in space.
+    Result: 1a. These triples are seen often enough,
+            1b. The "local type" hash has no false positive.
     
     2. For each pair of observers who can see a triple of stars,
         use that triple to translate observations 
@@ -15,6 +13,15 @@ Day 19, Plan:
         
     3. Make a "reduction plan" to transitively translate all 
         observations into a common reference frame. 
+
+1a: If we declare regions neighbours when at least 1 fingerprint matches, 
+    the graph of neighbours has 28 nodes and exactly 100 edges,
+    the degree of each node is between 2 and 11. 
+    The graph is connected.
+1b: After part 1, (len(fi(so1[plan[-1][1]])) == len(so1[plan[-1][1]])) == True 
+
+
+
 
 date, runtime, version
 
