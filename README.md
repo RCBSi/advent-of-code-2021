@@ -2,7 +2,7 @@
 
 Day 19:
 
-*    left_observer ---------------- key-star ------------ right_observer *
+    left_observer ---------------- key-star ------------ right_observer 
 
 the key-star has two neighbours nearby and both observers can see them. Each observer makes a matrix:
 
@@ -18,7 +18,7 @@ Each observer subtracts the key-star to move these three stars into the keystar-
 
 Now, these are in fact the same stars, so there is a rotation U_right; when you have it on the right, u right:
 
-    what_Leftis_sees == what_rightis_sees * U_right
+    what_left_sees == what_right_sees * U_right
 
 What's true for 2 stars is true for all stars:
 
@@ -28,8 +28,12 @@ What's true for 2 stars is true for all stars:
     star_0 minus keystar
     star_1 minus keystar
     star_2 minus keystar
+    ...
+    star29 minus keystar
 
-is a matrix that differs, in observational reference frames left_observer and right_observer by U_right. 
+If U_right rotates, acting on the columns of this matrix, and translates the first two rows of this matrix 
+from reference frame right_observer to reference frame left_observer, then likewise for all the other stars
+in this matrix.
 
 
     1. Identify stars by their local types, i.e., the distance
