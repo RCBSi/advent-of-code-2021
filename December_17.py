@@ -1,39 +1,48 @@
-def lv(v): #limiting height of y with velocity v; lim val of x with velocity v. 
-    return v*(v+1)//2
+import time
+start = time.time()
 
-with open('day17v0.txt', 'r') as file:
+def hit(y,t,ymin,ymax): 
+    yt = sum(range(y,y-t,-1))
+    return yt in range(ymin, ymax+1)
+
+def hitlate(y,ymin,ymax): 
+    yt, dy = 0, y
+    for t in range(-ymin*3):
+        yt+= dy
+        dy -= 1
+        if (yt in range(ymin, ymax+1)):
+            return t
+        if yt < ymin:
+            return -1
+
+def hitx(x,t,xmin,xmax): 
+    minimum_velocity = 0
+    xt = sum(range(x,max(x-t,minimum_velocity),-1))
+    return xt in range(xmin, xmax+1)
+
+def t_to_y(t, ymin, ymax):
+    return [y for y in range(ymin,-ymin) if hit(y,t,ymin,ymax)]
+
+def t_to_x(t, xmin, xmax):
+    return [x for x in range(-ymin) if hitx(x,t,xmin,xmax)]
+    
+with open('day17v1.txt', 'r') as file:
     te = [x.strip() for x in file.readlines()]
     xmin, xmax = [int(x) for x in te[0][te[0].index('x')+2:te[0].index(','):].split('..')]
-
     ymin, ymax = [int(x) for x in te[0][te[0].index('y')+2:].split('..')]
 
-if [x for x in range(0,xmax) if xmin < lv(x) and lv(x) < xmax]: # If we can limit to the x-target, 
-    print("pt1",lv(ymin)) # Launch at v = -ymin+1; rise lv(v); fall lv(v); return to 0; velocity is ymin. next step in target.
+if t_to_x(-ymin*3,xmin,xmax):
+    print("pt1",ymin*(ymin+1)//2) 
 
-def st(x,y,xv,yv): # step
-    x+= xv
-    y+= yv
-    if xv > 0:
-        xv -= 1
-    if xv < 0:
-        xv += 1
-    yv += -1
-    return x,y,xv,yv
+cut, count, ctseq = 0, 0, []
+while t_to_x(cut,xmin,xmax) != t_to_x(cut+1,xmin,xmax):
+    a,b = len(t_to_x(cut,xmin,xmax)),len(t_to_y(cut,ymin,ymax))
+    count += a*b
+    ctseq.append((a,b))
+    cut += 1
 
-def fh(ivx,ivy,tx,ty): #find highest point
-    vx, vy = (ivx,ivy)
-    ymax = 0
-    (x,y) = (0,0)
-    while y >= -215: 
-        (x,y,vx,vy) = st(x,y,vx,vy)
-        if y > ymax:
-            ymax = y
-        if (x in tx) and (y in ty):
-            return ymax
-    return y
-
-tx = range(xmin,xmax+1) # target area x, read it from the input.
-ty = range(ymin,ymax+1) # target area y.
-ry = [y for y in range(ymin, -1*ymin+1)]
-rx = [x for x in range([lv(k) >= xmin for k in range(20)].index(True),xmax+1) if xmin <= lv(x) and x <= xmax]
-print("pt2",sum([1 for x in rx for y in ry if fh(x,y,tx,ty) >= ymin]))
+low = sum([a*b for (a,b) in ctseq])
+print(time.time()-start)
+slow = len([y for y in range(ymin,-ymin) if hitlate(y,ymin,ymax)+1>=cut])
+patient = len(t_to_x(cut,xmin,xmax))
+print("p2",low + slow*patient, "=", low,"+", slow,"*",patient, time.time()-start)
