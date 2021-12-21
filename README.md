@@ -41,8 +41,8 @@ is a matrix that differs, in observational reference frames left_observer and ri
         that triple specifies the change of basis to translate observations 
         from one reference frame to the neighbor.
         
-    3. Walk through the graph of neighbours, translating to a common
-        reference frame.
+    3. Walk through the graph of observers who are neighbours, translating to a 
+        common reference frame.
 
     1a. If we declare regions neighbours when at least 1 fingerprint matches, 
     the graph of neighbours has 28 nodes and 94 edges, with degrees between 2 and 11. 
@@ -59,4 +59,6 @@ date, runtime, version
 
 18,     1.5s,  "location-value-depth"
 
-19,     0.4s,    "min-distance, 2nd-min-distance, cosine" hash for each star.
+19,     0.4s,  "min-distance, 2nd-min-distance, cosine" hash for each star.
+
+21,     77s,   recursion, ct = [1, 3, 6, 7, 6, 3, 1]
