@@ -61,6 +61,8 @@ in this matrix.
 
 day, runtime, version
 
+17,     0.03s  low + slow * patient.
+
 18,     1.5s,  "location-value-depth"
 
 19,     0.4s,  "min-distance, 2nd-min-distance, cosine" hash for each star.
