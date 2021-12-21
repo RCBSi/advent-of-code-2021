@@ -46,3 +46,35 @@ print(time.time()-start)
 slow = len([y for y in range(ymin,-ymin) if hitlate(y,ymin,ymax)+1>=cut])
 patient = len(t_to_x(cut,xmin,xmax))
 print("p2",low + slow*patient, "=", low,"+", slow,"*",patient, time.time()-start)
+
+def st(x,y,xv,yv): # step
+    x+= xv
+    y+= yv
+    if xv > 0:
+        xv -= 1
+    if xv < 0:
+        xv += 1
+    yv += -1
+    return x,y,xv,yv
+
+def fh(ivx,ivy,tx,ty): #find highest point
+    vx, vy = (ivx,ivy)
+    ymax = 0
+    (x,y) = (0,0)
+    while y >= -215: 
+        (x,y,vx,vy) = st(x,y,vx,vy)
+        if y > ymax:
+            ymax = y
+        if (x in tx) and (y in ty):
+            return ymax
+    return y
+
+tx = range(xmin,xmax+1) # target area x, read it from the input.
+ty = range(ymin,ymax+1) # target area y.
+ry = range(ymin, -ymin+1)
+rx = range(0,xmax+1)
+print("pt2",sum([1 for x in rx for y in ry if fh(x,y,tx,ty) >= ymin]), time.time()-start)
+
+# The answers agree on target area: x=34..67, y=-215..-186
+# Answers don't match: target area: x=30..60, y=-210..-180
+# The brute count is of course correct. 
