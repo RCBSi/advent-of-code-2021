@@ -59,7 +59,7 @@ in this matrix.
 
 
 
-date, runtime, version
+day, runtime, version
 
 18,     1.5s,  "location-value-depth"
 
