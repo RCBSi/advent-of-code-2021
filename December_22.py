@@ -44,6 +44,34 @@ def ovl(i,j): # is there overlap?
 #        return False # We don't care about intersections of off instructions with each other.
     return all([linin(ran[i][k],ran[j][k]) for k in range(3)])
 
+def exploration():
+    sum([ovl(-1,k) for k in range(len(te))])
+
+    # Are there any triangles? I.e., x,y,z such that 
+    # x and y intersect, y and z intersect, and x and z intersect.
+    for i in range(len(te)):
+        for j in range(i,len(te)):
+            for k in range(j,len(te)):
+                if ovl(i,j)*ovl(j,k)*ovl(k,i):
+                    print(i,j,k, ran[i])
+
+    ins = {i:[] for i in range(len(te))}
+    for i in range(len(te)):
+        for j in range(i,len(te)):
+            if ovl(i,j):
+                ins[i].append(j)
+                ins[j].append(i)
+
+    ins2 = {z : [y for x in ins[z] for y in ins[x]] for z in range(len(te))}
+    for z in range(len(te)):
+        ins2[z].sort()
+
+    ins2and1 = {z : [y for x in ins[z] for y in ins[x] if y in ins[z]] for z in range(len(te))}
+    sum([len(ins2and1[x]) for x in ins2and1])
+    #5952
+    sum([len(ins2[x]) for x in ins2and1])
+    #10818
+
 def ovll(i,j): # is there overlap?
     try:
         return [linin(ran[i][k],ran[j][k]) for k in range(3)]
