@@ -70,3 +70,5 @@ day, runtime, version
 21,     77s,   recursion, ct = [1, 3, 6, 7, 6, 3, 1]
 
 22,     many minutes.
+
+23,     94s,    list all paths of all depths, including 146 that end at the goal state.
