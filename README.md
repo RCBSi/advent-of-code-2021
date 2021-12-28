@@ -69,7 +69,7 @@ day, runtime, version
 
 21,     77s,   recursion, ct = [1, 3, 6, 7, 6, 3, 1]
 
-22,     60min  Constant .0004 - .006 seconds per input block, per intersection block, where there are 420 input blocks and up to 8904 intersection blocks; after 210 input blocks have been processed, there were 934 intersections; the number of intersection blocks grows superlinearly. Estimated time is 420 times constant [0.008-0.06] times average number of intersection blocks, which might be 420 times ~30ppm times 3000 /60 or about an hour.
+22,     60min  Constant .0004 - .0146 seconds per input block, per intersection block, where there are 420 input blocks and up to 8904 intersection blocks; after 210 input blocks have been processed, there were 934 intersections; the number of intersection blocks grows superlinearly. Total run time is 420 new blocks average number of intersection blocks times the time to compute the intersection, [0.008-0.06]s per old block and new block, or 420 times 3000 times 0.005s. The clause "do they separate" could be done in microseconds, not thousands of microseconds.
 
 23,     94s,    list all paths of all depths, including 146 that end at the goal state. len({x for x in sl}) = 78067 states; len(seen) = 57650 non-final states.
 
