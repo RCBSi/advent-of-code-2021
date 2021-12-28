@@ -69,7 +69,7 @@ day, runtime, version
 
 21,     77s,   recursion, ct = [1, 3, 6, 7, 6, 3, 1]
 
-22,     many minutes.
+22,     .008 - .06 seconds per input block, per intersection block, where there are 420 input blocks and up to 8904 intersection blocks; after 210 input blocks have been processed, there were 934 intersections; the number of intersection blocks grows superlinearly. Estimated time is 420 times constant [0.008-0.06] times average number of intersection blocks, which might be 420 times ~30 /10000 times 3000 /60 or about an hour.
 
 23,     94s,    list all paths of all depths, including 146 that end at the goal state. len({x for x in sl}) = 78067 states; len(seen) = 57650 non-final states.
 
