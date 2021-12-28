@@ -74,3 +74,5 @@ day, runtime, version
 23,     94s,    list all paths of all depths, including 146 that end at the goal state. len({x for x in sl}) = 78067 states; len(seen) = 57650 non-final states.
 
 24,     0.4s
+
+25,     4.4s
