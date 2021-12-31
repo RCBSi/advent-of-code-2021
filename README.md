@@ -73,6 +73,8 @@ day, runtime, version
 
 19,     0.4s,  "min-distance, 2nd-min-distance, cosine" hash for each star.
 
+20,     10s,    
+
 21,     77s,   recursion, ct = [1, 3, 6, 7, 6, 3, 1]
 
 22,     1s,     24923 minicubes get added together.
