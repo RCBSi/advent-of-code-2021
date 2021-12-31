@@ -61,6 +61,8 @@ in this matrix.
 
 day, runtime, version
 
+8,      0.033s
+
 9,      0.2s
 
 10,     0.015s
