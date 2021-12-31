@@ -25,13 +25,16 @@ with open('day21v0.txt', 'r') as file:
 
 print("p1",pl(7,10,0,0,1)) # test: pl(4,8,0,0,1)
 
-ct = {i:0 for i in range(3,10)}
+ct = [0 for i in range(10)]
 for d1 in range(1,4): 
     for d2 in range(1,4): 
         for d3 in range(1,4):
             ct[(d1+d2+d3)%10]+= 1
+ct = {i:ct[i] for i in range(10) if ct[i]>0}
 
 def pq(x,y,xs,ys,cl): # positions x,y, sums xs,ys, clock cl.
+    if xs < 5 and ys < 5:
+        print(xs,ys)
     if xs >= 21:
         return 1
     elif ys >= 21:
@@ -42,5 +45,6 @@ def pq(x,y,xs,ys,cl): # positions x,y, sums xs,ys, clock cl.
         if cl==1: # 1,2,3
             return sum([ct[die]*pq(x,mt(y,die),xs,ys+mt(y,die),1-cl) for die in ct]) #die =3 rolls
 
+start = time.time()
 z = pq(7,10,0,0,0)
 print("p2",int(max(z.imag,z.real)), time.time()-start)
