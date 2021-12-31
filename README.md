@@ -61,6 +61,14 @@ in this matrix.
 
 day, runtime, version
 
+10,     0.015s
+
+11,     7s      
+
+12,     0.0002s     count recursively annotated walks list-free. 
+
+13,     0.02s   surprisingly nice font possible in a 4x6 grid.
+
 14,     0.03s   
 
 15,     11s    "slosh" back and forth n times; 1 second per slosh.
