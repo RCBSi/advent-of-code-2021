@@ -61,6 +61,12 @@ in this matrix.
 
 day, runtime, version
 
+14,     0.03s   
+
+15,     11s    "slosh" back and forth n times; 1 second per slosh.
+
+16,     0.24s   recursive packet-value extraction. (consider "eval"!)
+
 17,     0.03s  low + slow * patient.
 
 18,     1.5s,  "location-value-depth"
