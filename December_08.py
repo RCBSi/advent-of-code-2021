@@ -17,7 +17,7 @@ def score(u,f):
 
     winu = {s : f[(nk[s], np[s], len(s))] for s in ls}
 
-    return sum([winu[rs[i]]*(10**(3-i)) for i in range(len(rs))])
+    return sum([1 for i in range(len(rs)) if str(winu[rs[i]]) in '1478']), sum([winu[rs[i]]*(10**(3-i)) for i in range(len(rs))])
 
 with open('day08v1.txt', 'r') as file:
     t = [x.strip() for x in file.readlines()]
@@ -34,14 +34,20 @@ f ={
     (3, 1, 6): 9,
     (6, 0, 7): 8}
 
-print(sum([score(u,f) for u in t]))
+print("pt1",sum([score(u,f)[0] for u in t]),"pt2:",sum([score(u,f)[1] for u in t]))
 
-#import pandas
+#import pandas as pd
 #d = pd.DataFrame(nk.items(), columns=["id","kids"])
 #d["pare"] = d.id.apply(lambda x: np.get(x,-1))
 #d["len"] = d.id.apply(lambda x:len(x))
 #d.groupby(["kids","pare","len"]).numb.min().to_dict()
-#d.numb from the directed graph < ~ containment
-#  -Containment Graph Image- 
+#d.numb by hand: 
+# 2 has no children and only 8 as a parent; 
+# 0 has no children and only 8 as a parent;
+# 1 has no children and only 4,7 as parent;
+# 5 has no children and 6,8,9 as parents
+# 7 has child 1 and parent 3
+# 4 has child 1 and parent 9 ...
+#Image:
 #  1  <  7  <  3  <  9  <  8 
-#  1<4<9; 5<6; 5<9; 2<8; 0<8 
+#  1<4<9;  2<5<6;  5<9;  0<8 
