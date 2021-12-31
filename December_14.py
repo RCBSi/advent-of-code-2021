@@ -26,7 +26,7 @@ def ud(pc): #update pair-count.
         npc[c+b]+= pc[a+b]
     return npc
 
-def ip(st): #initialize paircount
+def ip(st): #initialize paircound
     npc = {el+el2:0 for el in me for el2 in me}
     for i in range(len(st)-1):
         npc[st[i:i+2]] += 1
@@ -35,7 +35,9 @@ def ip(st): #initialize paircount
 def sc(pc,el): # single-character count.
     return sum([pc[el + x] for x in me])+{True:1, False:0}[st[-1]==el]
 
-me = {el:0 for el in ['B', 'C', 'F', 'H', 'K', 'N', 'O', 'P', 'S', 'V']} # mendeleev table of elements.
+import time
+start = time.time()
+me = {el:0 for el in ['B', 'C', 'F', 'H', 'K', 'N', 'O', 'P', 'S', 'V']}
 pc = ip(st)
 for _ in range(40):
     pc = ud(pc)
@@ -43,9 +45,12 @@ for _ in range(40):
     print(cts)
     print(_, max(cts) - min(cts))
 
-for _ in range(14):
+print("part2",max(cts) - min(cts))
+
+for _ in range(10):
     st = ins(st)
     cts = [st.count(el) for el in me]
     print(_, max(cts) - min(cts))
 
-
+print("part1",max(cts) - min(cts))
+print(time.time()-start)
