@@ -9,3 +9,9 @@ for a in uni1: # generate
 uni.sort() 
 uni1.sort()
 uni == uni1 # check
+
+comment = '''
+What are two good generators? 
+0. swap x and y. Then z goes to -z.
+1. fix x and spin y => z, z=> -y.
+'''
